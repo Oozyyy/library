@@ -9,18 +9,20 @@ class Book:
         return f"'{self.title}' - {self.author} ({self.status})"
 
 
-class User:
-
-    def __init__(self, name):
-        self.name = name
-        self.my_books = [] 
-
-
-class Librarian:
-
+class Person:
     def __init__(self, name):
         self.name = name
 
+
+class User(Person):
+     def __init__(self, name):
+        super().__init__(name)
+        self.my_books = []
+
+
+class Librarian(Person):
+     def __init__(self, name):
+        super().__init__(name)
 
 def load_books():
 
