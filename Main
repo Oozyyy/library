@@ -11,13 +11,19 @@ class Book:
 
 class Person:
     def __init__(self, name):
-        self.name = name
+        self._name = name
+
+    def get_name(self):
+        return self._name
 
 
 class User(Person):
-     def __init__(self, name):
+    def __init__(self, name):
         super().__init__(name)
         self.my_books = []
+
+    def get_my_books(self):
+        return self.my_books
 
 
 class Librarian(Person):
@@ -155,7 +161,7 @@ def librarian_menu(books, users):
 
 def user_menu(user, books, users):
     while True:
-        print(f"МЕНЮ ПОЛЬЗОВАТЕЛЯ: {user.name}")
+        print(f"МЕНЮ ПОЛЬЗОВАТЕЛЯ: {user.get_name()}")
         print("1. Просмотреть доступные книги")
         print("2. Взять книгу")
         print("3. Вернуть книгу")
